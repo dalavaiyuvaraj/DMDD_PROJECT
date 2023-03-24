@@ -41,6 +41,7 @@ end;
 
 
 --CREATE TABLES AS PER DATA MODEL
+
 CREATE TABLE Management_Company (
   company_id INT PRIMARY KEY,
   company_name VARCHAR(50),
