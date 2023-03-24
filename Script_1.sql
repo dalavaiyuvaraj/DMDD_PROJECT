@@ -78,11 +78,12 @@ CREATE TABLE tenant (
   tenant_id NUMBER(10) NOT NULL,
   tenant_password VARCHAR2(100) NOT NULL,
   tenant_name VARCHAR2(50) NOT NULL,
+  tenant_username VARCHAR2(50) NOT NULL,
   date_of_birth DATE DEFAULT NULL,
   occupation VARCHAR2(50) DEFAULT NULL,
   phone_number VARCHAR2(10) NOT NULL,
-  PRIMARY KEY (tenant_id),
-  CONSTRAINT tname_unique UNIQUE (tenant_name)
+  CONSTRAINT tusername_unique UNIQUE (tenant_username),
+  CONSTRAINT pk_tenant_id PRIMARY KEY (tenant_id)
 );
 /
 
@@ -92,7 +93,6 @@ CREATE TABLE maintainance_personnel (
   company_id NUMBER(10) NOT NULL,
   phone_number VARCHAR2(10) NOT NULL,
   CONSTRAINT maintaince_personnel_pk PRIMARY KEY (Maintainance_Person_id),
-  CONSTRAINT maintaince_personnel_uk UNIQUE (phone_number),
   CONSTRAINT maintaince_personnel_fk FOREIGN KEY (company_id) REFERENCES management_company (company_id)
 )
 /
@@ -104,9 +104,9 @@ CREATE TABLE request (
   request_description VARCHAR2(200) NOT NULL,
   request_status NUMBER(1) NOT NULL ,
   request_date DATE NOT NULL,
-  PRIMARY KEY (Request_ID, unit_no, maintainance_person_id),
-  CONSTRAINT M_with_table FOREIGN KEY (maintainance_person_id) REFERENCES maintainance_personnel (maintainance_person_id),
-  CONSTRAINT u_table FOREIGN KEY (unit_no) REFERENCES unit (unit_no)
+  CONSTRAINT pk_Request_id PRIMARY KEY (Request_ID),
+  CONSTRAINT fk_Maintainance_person_id FOREIGN KEY (maintainance_person_id) REFERENCES maintainance_personnel (maintainance_person_id),
+  CONSTRAINT fk_unit_no FOREIGN KEY (unit_no) REFERENCES unit (unit_no)
 )
 /
 
