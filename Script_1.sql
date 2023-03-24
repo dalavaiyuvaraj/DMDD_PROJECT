@@ -1,3 +1,4 @@
+
 --CLEANUP SCRIPT
 set serveroutput on
 declare
@@ -41,48 +42,53 @@ end;
 
 
 --CREATE TABLES AS PER DATA MODEL
-
 CREATE TABLE Management_Company (
-  company_id INT PRIMARY KEY,
-  company_name VARCHAR(50),
-  Company_Password VARCHAR(50),
-  email_id VARCHAR(100),
-  phone_number CHAR(10)
+  company_id NUMBER(10),
+  company_name VARCHAR(50) NOT NULL,
+  company_username VARCHAR(50) NOT NULL,
+  Company_Password VARCHAR(50)NOT NULL,
+  email_id VARCHAR(100)NOT NULL,
+  phone_number CHAR(15),
+  CONSTRAINT uk_Company_username UNIQUE (company_username),
+  CONSTRAINT pk_CompanyID PRIMARY KEY (company_id)
 )
 /
 
 
 CREATE TABLE BUILDING (
-  Building_id INT PRIMARY KEY,
-  Company_id INT,
-  building_name VARCHAR(100),
-  number_of_floors INT,
-  parking_spots INT,
-  type_of_building VARCHAR(10),
-  Address VARCHAR(100),
-  Zipcode INT,
-  CONSTRAINT fk_company_id FOREIGN KEY (Company_id) REFERENCES MANAGEMENT_COMPANY(COMPANY_ID)
+  Building_id NUMBER(10) NOT NULL,
+  Company_id NUMBER(10) NOT NULL,
+  building_name VARCHAR(100) NOT NULL,
+  number_of_floors NUMBER(20) NOT NULL,
+  parking_spots NUMBER(20) NOT NULL,
+  type_of_building VARCHAR(10) NOT NULL,
+  Address VARCHAR(100) NOT NULL,
+  Zipcode VARCHAR(20) NOT NULL,
+  CONSTRAINT fk_company_id FOREIGN KEY (Company_id) REFERENCES MANAGEMENT_COMPANY(COMPANY_ID),
+  CONSTRAINT uk_building_name UNIQUE (building_name),
+  CONSTRAINT pk_BuildingID PRIMARY KEY (Building_id)
 )
 /
 CREATE TABLE unit (
-  unit_no INT PRIMARY KEY,
-  building_id INT CONSTRAINT fk_building_id REFERENCES building(building_id),
-  unit_number INT,
-  no_of_bedrooms INT,
-  no_of_bathrooms INT,
-  area DECIMAL(10,2),
-  price DECIMAL(10,2)
+  unit_no NUMBER(10) NOT NULL,
+  building_id NUMBER(10) NOT NULL,
+  no_of_bedrooms NUMBER(10) NOT NULL,
+  no_of_bathrooms NUMBER(10) NOT NULL,
+  area DECIMAL(10,2) NOT NULL,
+  price DECIMAL(10,2),
+  CONSTRAINT fk_building_id FOREIGN KEY(building_id) REFERENCES building(building_id),
+  CONSTRAINT pk_unit_no PRIMARY KEY (unit_no)
 )
 /
 
 CREATE TABLE tenant (
   tenant_id NUMBER(10) NOT NULL,
-  tenant_password VARCHAR2(100) NOT NULL,
-  tenant_name VARCHAR2(50) NOT NULL,
-  tenant_username VARCHAR2(50) NOT NULL,
+  tenant_password VARCHAR(100) NOT NULL,
+  tenant_name VARCHAR(50) NOT NULL,
+  tenant_username VARCHAR(50) NOT NULL,
   date_of_birth DATE DEFAULT NULL,
-  occupation VARCHAR2(50) DEFAULT NULL,
-  phone_number VARCHAR2(10) NOT NULL,
+  occupation VARCHAR(50) DEFAULT NULL,
+  phone_number CHAR(15) NOT NULL,
   CONSTRAINT tusername_unique UNIQUE (tenant_username),
   CONSTRAINT pk_tenant_id PRIMARY KEY (tenant_id)
 );
@@ -90,9 +96,9 @@ CREATE TABLE tenant (
 
 CREATE TABLE maintainance_personnel (
   Maintainance_Person_id NUMBER(10) NOT NULL,
-  Maintainance_Person_name VARCHAR2(50) NOT NULL,
+  Maintainance_Person_name VARCHAR(50) NOT NULL,
   company_id NUMBER(10) NOT NULL,
-  phone_number VARCHAR2(10) NOT NULL,
+  phone_number VARCHAR(10) NOT NULL,
   CONSTRAINT maintaince_personnel_pk PRIMARY KEY (Maintainance_Person_id),
   CONSTRAINT maintaince_personnel_fk FOREIGN KEY (company_id) REFERENCES management_company (company_id)
 )
@@ -102,7 +108,7 @@ CREATE TABLE request (
   Request_ID NUMBER(10) NOT NULL,
   unit_no NUMBER(10) NOT NULL,
   maintainance_person_id NUMBER(10) NOT NULL,
-  request_description VARCHAR2(200) NOT NULL,
+  request_description VARCHAR(200) NOT NULL,
   request_status NUMBER(1) NOT NULL ,
   request_date DATE NOT NULL,
   CONSTRAINT pk_Request_id PRIMARY KEY (Request_ID),
@@ -111,9 +117,10 @@ CREATE TABLE request (
 )
 /
 
+
 CREATE TABLE amenity (
   amenity_id NUMBER(10) NOT NULL,
-  amenity_description VARCHAR2(100) NOT NULL,
+  amenity_description VARCHAR(100) NOT NULL,
   CONSTRAINT amenity_pk PRIMARY KEY (amenity_id),
   CONSTRAINT amenity_description_uk UNIQUE (amenity_description)
 )
