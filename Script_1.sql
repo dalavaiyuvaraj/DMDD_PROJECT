@@ -67,3 +67,41 @@ CREATE TABLE request (
   CONSTRAINT u_table FOREIGN KEY (unit_no) REFERENCES unit (unit_no)
 )
 /
+
+CREATE TABLE amenity (
+  amenity_id NUMBER(10) NOT NULL,
+  amenity_description VARCHAR2(100) NOT NULL,
+  CONSTRAINT amenity_pk PRIMARY KEY (amenity_id),
+  CONSTRAINT amenity_description_uk UNIQUE (amenity_description)
+)
+/
+
+CREATE TABLE building_has_amenity (
+  building_id NUMBER(10) NOT NULL,
+  amenity_id NUMBER(10) NOT NULL,
+  sequence1 NUMBER(10) NOT NULL,
+  CONSTRAINT building_has_amenity_pk PRIMARY KEY (amenity_id, building_id, sequence1),
+  CONSTRAINT building_has_amenity_b_fk FOREIGN KEY (building_id) REFERENCES building (building_id),
+  CONSTRAINT building_has_amenity_a_fk FOREIGN KEY (amenity_id) REFERENCES amenity (amenity_id)
+)
+/
+
+CREATE TABLE lease (
+  lease_id NUMBER(10) NOT NULL,
+  start_date DATE NOT NULL,
+  end_date DATE NOT NULL,
+  CONSTRAINT lease_pk PRIMARY KEY (lease_id)
+)
+/
+
+CREATE TABLE Leased_units (
+  sequence2 NUMBER(10) NOT NULL,
+  lease_id NUMBER(10) NOT NULL,
+  unit_no NUMBER(10) NOT NULL,
+  tenant_id NUMBER(10) NOT NULL,
+  CONSTRAINT leased_units_pk PRIMARY KEY (lease_id, sequence2, unit_no, tenant_id),
+  CONSTRAINT leased_units_l_fk FOREIGN KEY (lease_id) REFERENCES lease (lease_id),
+  CONSTRAINT leased_units_t_fk FOREIGN KEY (tenant_id) REFERENCES tenant (tenant_id),
+  CONSTRAINT leased_units_u_fk FOREIGN KEY (unit_no) REFERENCES unit (unit_no)
+);
+/
