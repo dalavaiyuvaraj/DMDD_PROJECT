@@ -155,3 +155,24 @@ CREATE TABLE Leased_units (
   CONSTRAINT leased_units_u_fk FOREIGN KEY (unit_no) REFERENCES unit (unit_no)
 );
 /
+
+INSERT INTO MANAGEMENT_COMPANY (Company_ID,COMPANY_NAME,Company_username,Company_Password,email_ID,Phone_Number)
+VALUES (1,'Cakewalk','sed','nibh','velit@yahoo.net','7452335100');
+INSERT INTO MANAGEMENT_COMPANY (Company_ID,COMPANY_NAME,Company_username,Company_Password,email_ID,Phone_Number)
+VALUES (2,'Chami','Aliquam','cursus.','donec@icloud.ca','3425796329');
+INSERT INTO MANAGEMENT_COMPANY (Company_ID,COMPANY_NAME,Company_username,Company_Password,email_ID,Phone_Number)
+VALUES (3,'Cakewalk','dui','porttitor','arcu.iaculis@yahoo.couk','7029908536');
+INSERT INTO MANAGEMENT_COMPANY (Company_ID,COMPANY_NAME,Company_username,Company_Password,email_ID,Phone_Number)
+VALUES (4,'Finale','a','Nulla','lectus.sit@yahoo.couk','4485926762');
+INSERT INTO MANAGEMENT_COMPANY (Company_ID,COMPANY_NAME,Company_username,Company_Password,email_ID,Phone_Number)
+VALUES (5,'Cakewalk','magnis','ut,','nonummy@yahoo.couk','2223554522');
+INSERT INTO MANAGEMENT_COMPANY (Company_ID,COMPANY_NAME,Company_username,Company_Password,email_ID,Phone_Number)
+VALUES (6,'Cakewalk','egestas.','libero','suspendisse.aliquet@icloud.org','3127891531');
+INSERT INTO MANAGEMENT_COMPANY (Company_ID,COMPANY_NAME,Company_username,Company_Password,email_ID,Phone_Number)
+VALUES (7,'Cakewalk','aliquam','amet','dolor.dolor@hotmail.org','7201018056');
+INSERT INTO MANAGEMENT_COMPANY (Company_ID,COMPANY_NAME,Company_username,Company_Password,email_ID,Phone_Number)
+VALUES (8,'Lavasoft','sem,','ante','nullam@hotmail.edu','3567161152');
+INSERT INTO MANAGEMENT_COMPANY (Company_ID,COMPANY_NAME,Company_username,Company_Password,email_ID,Phone_Number)
+VALUES (9,'Microsoft','quis','bibendum.','suspendisse.ac@google.net','4255921863');
+INSERT INTO MANAGEMENT_COMPANY (Company_ID,COMPANY_NAME,Company_username,Company_Password,email_ID,Phone_Number)
+VALUES (10,'Lavasoft','Vivamus','Cras','adipiscing@protonmail.ca','2452746961');
