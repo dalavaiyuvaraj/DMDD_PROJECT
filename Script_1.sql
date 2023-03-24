@@ -815,4 +815,4 @@ insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (98, 3
 insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (99, 13, 4, 11);
 insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (100, 33, 26, 1);
 
-
+commit;
