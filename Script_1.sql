@@ -122,7 +122,7 @@ CREATE TABLE building_has_amenity (
   building_id NUMBER(10) NOT NULL,
   amenity_id NUMBER(10) NOT NULL,
   sequence1 NUMBER(10) NOT NULL,
-  CONSTRAINT building_has_amenity_pk PRIMARY KEY (amenity_id, building_id, sequence1),
+  CONSTRAINT building_has_amenity_pk PRIMARY KEY (sequence1),
   CONSTRAINT building_has_amenity_b_fk FOREIGN KEY (building_id) REFERENCES building (building_id),
   CONSTRAINT building_has_amenity_a_fk FOREIGN KEY (amenity_id) REFERENCES amenity (amenity_id)
 )
@@ -141,7 +141,7 @@ CREATE TABLE Leased_units (
   lease_id NUMBER(10) NOT NULL,
   unit_no NUMBER(10) NOT NULL,
   tenant_id NUMBER(10) NOT NULL,
-  CONSTRAINT leased_units_pk PRIMARY KEY (lease_id, sequence2, unit_no, tenant_id),
+  CONSTRAINT leased_units_pk PRIMARY KEY (sequence2),
   CONSTRAINT leased_units_l_fk FOREIGN KEY (lease_id) REFERENCES lease (lease_id),
   CONSTRAINT leased_units_t_fk FOREIGN KEY (tenant_id) REFERENCES tenant (tenant_id),
   CONSTRAINT leased_units_u_fk FOREIGN KEY (unit_no) REFERENCES unit (unit_no)
