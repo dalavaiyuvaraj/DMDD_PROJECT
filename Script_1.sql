@@ -714,105 +714,81 @@ insert into building_has_amenity (SEQUENCE1, building_id, amenity_id) values (48
 insert into building_has_amenity (SEQUENCE1, building_id, amenity_id) values (49, 32, 37);
 insert into building_has_amenity (SEQUENCE1, building_id, amenity_id) values (50, 11, 20);
 
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (1, 34, 46, 98);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (2, 95, 48, 34);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (3, 5, 41, 20);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (4, 35, 30, 78);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (5, 65, 11, 59);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (6, 85, 36, 49);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (7, 58, 25, 92);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (8, 25, 12, 30);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (9, 81, 37, 43);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (10, 34, 37, 65);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (11, 52, 48, 74);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (12, 79, 30, 61);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (13, 5, 43, 9);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (14, 94, 44, 57);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (15, 18, 43, 81);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (16, 47, 9, 83);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (17, 80, 31, 2);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (18, 47, 42, 8);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (19, 87, 40, 84);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (20, 51, 32, 44);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (21, 73, 40, 15);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (22, 90, 16, 69);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (23, 88, 3, 10);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (24, 19, 49, 28);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (25, 50, 29, 37);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (26, 80, 17, 2);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (27, 50, 31, 76);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (28, 72, 25, 75);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (29, 94, 36, 22);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (30, 4, 5, 23);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (31, 49, 8, 44);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (32, 57, 17, 13);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (33, 12, 44, 12);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (34, 15, 25, 69);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (35, 59, 9, 82);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (36, 31, 16, 46);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (37, 91, 36, 49);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (38, 17, 35, 23);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (39, 93, 21, 85);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (40, 11, 10, 9);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (41, 90, 39, 64);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (42, 42, 27, 15);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (43, 90, 38, 68);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (44, 62, 46, 86);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (45, 31, 10, 29);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (46, 99, 7, 25);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (47, 45, 1, 40);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (48, 47, 22, 57);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (49, 87, 35, 35);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (50, 86, 35, 97);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (51, 45, 44, 3);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (52, 91, 35, 20);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (53, 71, 49, 99);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (54, 14, 15, 74);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (55, 33, 35, 71);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (56, 75, 35, 85);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (57, 18, 36, 62);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (58, 89, 7, 23);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (59, 80, 41, 62);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (60, 96, 45, 47);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (61, 84, 37, 8);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (62, 97, 40, 85);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (63, 76, 12, 42);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (64, 70, 1, 13);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (65, 59, 1, 27);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (66, 94, 3, 70);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (67, 48, 43, 25);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (68, 18, 12, 46);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (69, 80, 35, 23);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (70, 15, 27, 11);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (71, 23, 23, 90);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (72, 9, 31, 90);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (73, 96, 12, 35);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (74, 71, 5, 95);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (75, 80, 3, 85);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (76, 41, 3, 26);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (77, 21, 3, 96);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (78, 15, 7, 21);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (79, 34, 12, 40);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (80, 38, 10, 55);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (81, 60, 10, 15);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (82, 74, 27, 46);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (83, 34, 21, 48);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (84, 61, 39, 81);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (85, 28, 21, 19);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (86, 74, 29, 30);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (87, 51, 31, 34);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (88, 84, 48, 1);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (89, 72, 38, 90);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (90, 3, 46, 37);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (91, 43, 7, 62);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (92, 40, 10, 33);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (93, 64, 26, 57);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (94, 61, 10, 97);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (95, 95, 11, 33);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (96, 13, 14, 44);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (97, 52, 42, 62);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (98, 38, 3, 16);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (99, 13, 4, 11);
-insert into LEASED_UNITS (SEQUENCE2, LEASE_ID, UNIT_NO, TENANT_ID) values (100, 33, 26, 1);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (1, 1, 1, 1);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (2, 2, 2, 2);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (3, 3, 3, 3);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (4, 4, 4, 4);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (5, 5, 5, 5);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (6, 6, 6, 6);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (7, 7, 7, 7);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (8, 8, 8, 8);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (9, 9, 9, 9);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (10, 10, 10, 10);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (11, 11, 11, 11);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (12, 12, 12, 12);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (13, 13, 13, 13);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (14, 14, 14, 14);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (15, 15, 15, 15);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (16, 16, 16, 16);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (17, 17, 17, 17);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (18, 18, 18, 18);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (19, 19, 19, 19);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (20, 20, 20, 20);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (21, 21, 21, 21);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (22, 22, 22, 22);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (23, 23, 23, 23);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (24, 24, 24, 24);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (25, 25, 25, 25);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (26, 26, 26, 26);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (27, 27, 27, 27);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (28, 28, 28, 28);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (29, 29, 29, 29);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (30, 30, 30, 30);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (31, 31, 31, 31);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (32, 32, 32, 32);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (33, 33, 33, 33);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (34, 34, 34, 34);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (35, 35, 35, 35);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (36, 36, 36, 36);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (37, 37, 37, 37);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (38, 38, 38, 38);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (39, 39, 39, 39);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (40, 40, 40, 40);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (41, 41, 41, 41);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (42, 42, 42, 42);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (43, 43, 43, 43);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (44, 44, 44, 44);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (45, 45, 45, 45);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (46, 46, 46, 46);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (47, 47, 47, 47);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (48, 48, 48, 48);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (49, 49, 49, 49);
+insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (50, 50, 50, 50);
 
 commit;
+
+CREATE OR REPLACE PROCEDURE get_all_buildings AS
+  v_building_name BUILDING.BUILDING_NAME%TYPE;
+BEGIN
+  -- Cursor to retrieve building_name
+  FOR c_building_name IN (SELECT BUILDING_NAME FROM BUILDING)
+  LOOP
+    v_building_name := c_building_name.BUILDING_NAME;
+    DBMS_OUTPUT.PUT_LINE(v_building_name);
+  END LOOP;
+END;
+/
+
+CREATE OR REPLACE PROCEDURE get_company_buildings (CompanyUsername IN VARCHAR)
+AS
+  companyid NUMBER;
+  building_name building.building_name%TYPE; -- declare variable with the same type as column
+BEGIN
+  SELECT company_id INTO companyid FROM management_company WHERE company_username = CompanyUsername;
+  -- use a cursor to retrieve the building names
+  FOR building_rec IN (SELECT building_name FROM building WHERE company_id = companyid) LOOP
+    building_name := building_rec.building_name;
+    DBMS_OUTPUT.PUT_LINE(building_name); -- print the building name
+  END LOOP;
+END;
+/
