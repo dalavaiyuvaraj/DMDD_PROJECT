@@ -792,3 +792,63 @@ BEGIN
   END LOOP;
 END;
 /
+
+
+CREATE OR REPLACE PROCEDURE get_building_details (buildingname IN VARCHAR)
+AS
+  address building.address%TYPE;
+  zipcode building.zipcode%TYPE;
+  number_of_floors building.number_of_floors%TYPE;
+  parking_spots building.parking_spots%TYPE;
+  type_of_building building.type_of_building%TYPE;
+BEGIN
+  SELECT address, zipcode, number_of_floors, parking_spots, type_of_building
+  INTO address, zipcode, number_of_floors, parking_spots, type_of_building
+  FROM building
+  WHERE building_name = buildingname;
+
+  DBMS_OUTPUT.PUT_LINE('Address: ' || address);
+  DBMS_OUTPUT.PUT_LINE('Zipcode: ' || zipcode);
+  DBMS_OUTPUT.PUT_LINE('Number of floors: ' || number_of_floors);
+  DBMS_OUTPUT.PUT_LINE('Parking spots: ' || parking_spots);
+  DBMS_OUTPUT.PUT_LINE('Type of building: ' || type_of_building);
+END;
+/
+
+
+CREATE OR REPLACE FUNCTION get_tenants(
+    unitno IN NUMBER
+)
+RETURN VARCHAR2
+DETERMINISTIC
+IS
+    tenantname VARCHAR2(50);
+    tenantid NUMBER;
+BEGIN
+    SELECT tenant_id INTO tenantid 
+    FROM leased_units il 
+    LEFT JOIN unit u ON il.unit_no = u.unit_no
+    WHERE il.unit_no = unitno;
+
+    SELECT first_name||' '||last_name|| ' and Phone Number is ' ||Phone_number INTO tenantname 
+    FROM tenant t 
+    WHERE t.tenant_id = tenantid;
+
+    RETURN tenantname;
+END;
+/
+
+CREATE OR REPLACE PROCEDURE get_maintenance_requests(
+  unitno IN NUMBER
+)
+IS
+  description VARCHAR2(200);
+  status VARCHAR2(200);
+BEGIN
+  SELECT request_description, request_status INTO description, status
+  FROM request r 
+  WHERE r.unit_no = unitno;
+  
+  DBMS_OUTPUT.PUT_LINE('Description: ' || description || ', Status: ' || status);
+END;
+/
