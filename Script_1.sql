@@ -908,3 +908,115 @@ EXCEPTION
     RETURN TRUE;
 END;
 /
+
+--Creating view to get the get available units in a particular building
+CREATE OR REPLACE PROCEDURE get_building_available_units(p_buildingname IN VARCHAR2)
+IS
+  l_buildingid NUMBER;
+BEGIN
+  SELECT building_id INTO l_buildingid
+  FROM building
+  WHERE building_name = p_buildingname;
+  
+  FOR c_unit IN (
+    SELECT unit_no
+    FROM unit
+    WHERE building_id = l_buildingid
+  ) LOOP
+    IF is_unit_available(c_unit.unit_no) THEN
+      DBMS_OUTPUT.PUT_LINE(c_unit.unit_no||' is Available');
+    ELSE
+      DBMS_OUTPUT.PUT_LINE(c_unit.unit_no||' is not available');
+    END IF;
+    
+  END LOOP;
+  
+  
+END;
+/
+
+--To display the view 
+BEGIN
+  get_building_available_units('Boni');
+END;
+/
+
+
+--Creating view to get the list of all the buildings
+CREATE OR REPLACE VIEW all_building_names AS
+SELECT BUILDING_NAME FROM BUILDING;
+
+--Creating view to get the buildings managed by company
+CREATE OR REPLACE VIEW company_buildings AS
+SELECT b.building_name,mc.company_username 
+FROM building b
+JOIN management_company mc
+ON b.company_id = mc.company_id;
+
+--To display the view 
+SELECT BUILDING_NAME from company_buildings
+WHERE company_username = 'sed';
+
+--Creating view to get details of a particular building
+CREATE OR REPLACE VIEW building_details_view AS
+SELECT address, zipcode, number_of_floors, parking_spots, type_of_building
+FROM building
+WHERE building_name = 'Boni';
+
+--Creating view to get the tenant details of a particular unit
+CREATE OR REPLACE VIEW tenants_info AS
+SELECT u.unit_no, t.first_name || ' ' || t.last_name AS tenant_name, t.phone_number
+FROM leased_units il
+LEFT JOIN unit u ON il.unit_no = u.unit_no
+LEFT JOIN tenant t ON il.tenant_id = t.tenant_id;
+
+--To display the view 
+SELECT tenant_name || ' and Phone Number is ' || phone_number as Tenant_Details
+FROM tenants_info
+WHERE unit_no = 23;
+
+--Creating view to get details of maintenance requests of a particular unit
+CREATE OR REPLACE VIEW maintenance_requests_info AS
+SELECT r.request_id, r.request_description, r.request_status, r.request_date, u.unit_no
+FROM request r
+LEFT JOIN unit u ON r.unit_no = u.unit_no;
+
+--To display the view 
+SELECT request_description, request_status
+FROM maintenance_requests_info
+WHERE unit_no = 7;
+
+--Creating view to get available maintainance personnel
+CREATE OR REPLACE VIEW maintenance_personnel_info AS
+SELECT mc.company_username, mp.firstname||' '||mp.lastname as Full_name, mp.phone_number
+FROM management_company mc
+LEFT JOIN maintainance_personnel mp ON mc.company_id = mp.company_id;
+
+--To display the view 
+SELECT Full_name, phone_number
+FROM maintenance_personnel_info
+WHERE company_username = 'sed';
+
+--Creating view to get the lease information
+CREATE OR REPLACE VIEW lease_info_view AS
+SELECT t.First_name||' '||t.last_name as Tenant_Fullname , il.unit_no, l.start_date, l.end_date
+FROM leased_units il
+LEFT JOIN lease l ON il.lease_id = l.lease_id
+JOIN tenant t ON il.tenant_id = t.tenant_id;
+
+--To display the view 
+SELECT unit_no, start_date,end_date
+FROM lease_info_view
+WHERE Tenant_Fullname = 'Benyamin Fairfull';
+
+
+
+
+
+
+
+
+
+
+
+
