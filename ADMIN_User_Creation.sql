@@ -1,0 +1,94 @@
+PURGE RECYCLEBIN;
+
+SET SERVEROUTPUT ON;
+
+
+BEGIN
+    FOR s IN (SELECT sid, serial# FROM v$session WHERE username = 'DATABASE_ADMIN') LOOP
+        DBMS_OUTPUT.PUT_LINE('Killing session: ' || s.sid || ',' || s.serial#);
+        EXECUTE IMMEDIATE 'ALTER SYSTEM KILL SESSION ''' || s.sid || ',' || s.serial# || ''' IMMEDIATE';
+    END LOOP;
+END;
+/
+
+BEGIN
+    EXECUTE IMMEDIATE 'DROP USER DATABASE_ADMIN CASCADE';
+EXCEPTION
+    WHEN OTHERS THEN
+    IF SQLCODE != -1918 THEN
+    RAISE;
+    END IF;
+END;
+/
+
+CREATE USER DATABASE_ADMIN IDENTIFIED BY Password123456789;
+
+GRANT CONNECT TO DATABASE_ADMIN;
+
+GRANT CREATE SESSION, CREATE TABLE, CREATE SEQUENCE TO DATABASE_ADMIN;
+
+GRANT DROP ANY TABLE, DROP ANY SEQUENCE TO DATABASE_ADMIN;
+
+GRANT CREATE PROCEDURE TO DATABASE_ADMIN;
+
+GRANT CREATE VIEW TO DATABASE_ADMIN;
+
+
+
+
+BEGIN
+    FOR t IN (SELECT table_name FROM all_tables WHERE owner = 'DATABASE_ADMIN') LOOP
+    EXECUTE IMMEDIATE 'GRANT ALL PRIVILEGES ON DATABASE_ADMIN.' || t.table_name || ' TO DATABASE_ADMIN';
+    END LOOP;
+END;
+/
+
+GRANT UNLIMITED TABLESPACE TO DATABASE_ADMIN;
+
+
+declare
+    is_true number;
+begin
+    select count(*) 
+    INTO IS_TRUE
+    from all_users where username='TENANT';
+    IF IS_TRUE > 0
+    THEN
+    EXECUTE IMMEDIATE 'DROP USER TENANT CASCADE';
+    END IF;
+END;
+/
+
+declare
+    is_true number;
+begin
+    select count(*) 
+    INTO IS_TRUE
+    from all_users where username='PROSPECTIVE_TENANT';
+    IF IS_TRUE > 0
+    THEN
+    EXECUTE IMMEDIATE 'DROP USER PROSPECTIVE_TENANT CASCADE';
+    END IF;
+END;
+/
+
+
+--------------------Creating Project specific users----------------------------
+CREATE USER TENANT IDENTIFIED BY Password123456789 QUOTA 200M ON DATA;
+CREATE USER PROSPECTIVE_TENANT IDENTIFIED BY Password123456789 QUOTA 200M ON DATA;
+CREATE USER COMAPANY_ADMIN IDENTIFIED BY Password123456789 QUOTA 200M ON DATA;
+
+
+---------------------Granting privileges to TENANT--------------------------------
+GRANT CONNECT TO TENANT;
+
+
+
+---------------------Granting privileges to PROSPECTIVE_TENANT--------------------------------
+GRANT CONNECT TO PROSPECTIVE_TENANT;
+
+
+---------------------Granting privileges to COMPANY_ADMIN--------------------------------
+GRANT CONNECT TO COMPANY_ADMIN;
+
+
