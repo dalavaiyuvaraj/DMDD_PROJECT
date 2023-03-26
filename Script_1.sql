@@ -42,6 +42,7 @@ end;
 
 
 --CREATE TABLES AS PER DATA MODEL
+--Creating management_company table 
 CREATE TABLE Management_Company (
   company_id NUMBER(10),
   company_name VARCHAR(50) NOT NULL,
@@ -54,7 +55,7 @@ CREATE TABLE Management_Company (
 )
 /
 
-
+--Creating building table 
 CREATE TABLE BUILDING (
   Building_id NUMBER(10) NOT NULL,
   Company_id NUMBER(10) NOT NULL,
@@ -69,6 +70,8 @@ CREATE TABLE BUILDING (
   CONSTRAINT pk_BuildingID PRIMARY KEY (Building_id)
 )
 /
+
+--Creating unit table
 CREATE TABLE unit (
   unit_no NUMBER(10) NOT NULL,
   building_id NUMBER(10) NOT NULL,
@@ -81,6 +84,7 @@ CREATE TABLE unit (
 )
 /
 
+--Creating tenant table
 CREATE TABLE tenant (
   tenant_id NUMBER(10) NOT NULL,
   First_name VARCHAR(50) NOT NULL,
@@ -95,6 +99,7 @@ CREATE TABLE tenant (
 );
 /
 
+--Creating maintainance_personnel table
 CREATE TABLE maintainance_personnel (
   Maintainance_Person_id NUMBER(10) NOT NULL,
   Firstname VARCHAR(50) NOT NULL,
@@ -106,6 +111,7 @@ CREATE TABLE maintainance_personnel (
 )
 /
 
+--Creating request table
 CREATE TABLE request (
   Request_ID NUMBER(10) NOT NULL,
   unit_no NUMBER(10) NOT NULL,
@@ -120,6 +126,7 @@ CREATE TABLE request (
 /
 
 
+--Creating amenity table
 CREATE TABLE amenity (
   amenity_id NUMBER(10) NOT NULL,
   amenity_description VARCHAR(100) NOT NULL,
@@ -128,6 +135,7 @@ CREATE TABLE amenity (
 )
 /
 
+--Creating building_has_amenity table
 CREATE TABLE building_has_amenity (
   building_id NUMBER(10) NOT NULL,
   amenity_id NUMBER(10) NOT NULL,
@@ -138,6 +146,7 @@ CREATE TABLE building_has_amenity (
 )
 /
 
+--Creating lease table
 CREATE TABLE lease (
   lease_id NUMBER(10) NOT NULL,
   start_date DATE NOT NULL,
@@ -146,6 +155,7 @@ CREATE TABLE lease (
 )
 /
 
+--Creating leased_units table
 CREATE TABLE Leased_units (
   sequence2 NUMBER(10) NOT NULL,
   lease_id NUMBER(10) NOT NULL,
@@ -158,6 +168,7 @@ CREATE TABLE Leased_units (
 );
 /
 
+--Inserting data into management_company table
 INSERT INTO MANAGEMENT_COMPANY (Company_ID,COMPANY_NAME,Company_username,Company_Password,email_ID,Phone_Number)
 VALUES (1,'Cakewalk','sed','nibh','velit@yahoo.net','7452335100');
 INSERT INTO MANAGEMENT_COMPANY (Company_ID,COMPANY_NAME,Company_username,Company_Password,email_ID,Phone_Number)
@@ -179,6 +190,7 @@ VALUES (9,'Microsoft','quis','bibendum.','suspendisse.ac@google.net','4255921863
 INSERT INTO MANAGEMENT_COMPANY (Company_ID,COMPANY_NAME,Company_username,Company_Password,email_ID,Phone_Number)
 VALUES (10,'Lavasoft','Vivamus','Cras','adipiscing@protonmail.ca','2452746961');
 
+--Inserting data into building table
 insert into BUILDING (BUILDING_ID, COMPANY_ID, BUILDING_NAME, NUMBER_OF_FLOORS, PARKING_SPOTS, TYPE_OF_BUILDING, ADDRESS, ZIPCODE) values (1, 2, 'Boni', 5, 5, 'Townhouse', '92825 Union Plaza', '770955');
 insert into BUILDING (BUILDING_ID, COMPANY_ID, BUILDING_NAME, NUMBER_OF_FLOORS, PARKING_SPOTS, TYPE_OF_BUILDING, ADDRESS, ZIPCODE) values (2, 1, 'Draude', 8, 7, 'Apartment', '55527 8th Trail', '900751');
 insert into BUILDING (BUILDING_ID, COMPANY_ID, BUILDING_NAME, NUMBER_OF_FLOORS, PARKING_SPOTS, TYPE_OF_BUILDING, ADDRESS, ZIPCODE) values (3, 2, 'Ivancevic', 7, 4, 'Individual', '3 Welch Point', '807434');
@@ -255,6 +267,7 @@ insert into BUILDING (BUILDING_ID, COMPANY_ID, BUILDING_NAME, NUMBER_OF_FLOORS, 
 insert into BUILDING (BUILDING_ID, COMPANY_ID, BUILDING_NAME, NUMBER_OF_FLOORS, PARKING_SPOTS, TYPE_OF_BUILDING, ADDRESS, ZIPCODE) values (74, 4, 'Rostron', 9, 7, 'Townhouse', '80 Laurel Avenue', '772158');
 insert into BUILDING (BUILDING_ID, COMPANY_ID, BUILDING_NAME, NUMBER_OF_FLOORS, PARKING_SPOTS, TYPE_OF_BUILDING, ADDRESS, ZIPCODE) values (75, 8, 'Battson', 2, 5, 'Townhouse', '2 Lukken Street', '446200');
 
+--Inserting data into unit table
 insert into Unit (unit_no, building_id, no_of_bedrooms, no_of_bathrooms, area, price) values (1, 13, 8, 3, 1555.14, 9277.02);
 insert into Unit (unit_no, building_id, no_of_bedrooms, no_of_bathrooms, area, price) values (2, 9, 5, 1, 2705.88, 4128.35);
 insert into Unit (unit_no, building_id, no_of_bedrooms, no_of_bathrooms, area, price) values (3, 7, 9, 1, 2073.02, 2919.56);
@@ -306,7 +319,7 @@ insert into Unit (unit_no, building_id, no_of_bedrooms, no_of_bathrooms, area, p
 insert into Unit (unit_no, building_id, no_of_bedrooms, no_of_bathrooms, area, price) values (49, 19, 6, 3, 1674.09, 6878.29);
 insert into Unit (unit_no, building_id, no_of_bedrooms, no_of_bathrooms, area, price) values (50, 2, 8, 4, 2477.09, 1382.56);
 
-
+--Inserting data into tenant table
 insert into tenant (TENANT_ID, first_name, last_name, username, Tenant_password, DATE_OF_BIRTH, OCCUPATION, PHONE_NUMBER) values (1, 'Benyamin', 'Fairfull', 'bfairfull0', 'jo5pKbs5TR', '29-Apr-2009', 'Analog Circuit Design manager', '8866502121');
 insert into tenant (TENANT_ID, first_name, last_name, username, Tenant_password, DATE_OF_BIRTH, OCCUPATION, PHONE_NUMBER) values (2, 'Dyanne', 'Leversuch', 'dleversuch1', 'lTTKIoKmJB', '29-Nov-2020', 'Nurse', '1653984271');
 insert into tenant (TENANT_ID, first_name, last_name, username, Tenant_password, DATE_OF_BIRTH, OCCUPATION, PHONE_NUMBER) values (3, 'Hi', 'Stegell', 'hstegell2', 'qzrMWz', '28-Oct-2012', 'Teacher', '3117930660');
@@ -408,7 +421,7 @@ insert into tenant (TENANT_ID, first_name, last_name, username, Tenant_password,
 insert into tenant (TENANT_ID, first_name, last_name, username, Tenant_password, DATE_OF_BIRTH, OCCUPATION, PHONE_NUMBER) values (99, 'Thor', 'Strange', 'tstrange2q', 'PqbTKUj5VQa', '03-Sep-2006', 'Civil Engineer', '9981712066');
 insert into tenant (TENANT_ID, first_name, last_name, username, Tenant_password, DATE_OF_BIRTH, OCCUPATION, PHONE_NUMBER) values (100, 'Hatty', 'Slingsby', 'hslingsby2r', 'zJ3HBtPzq', '08-Nov-2022', 'Account Executive', '3551034736');
 
-
+--Inserting data into maintainance_personnel table
 insert into maintainance_personnel (maintainance_person_id, company_id, firstname, lastname, phone_number) values (1, 4, 'Maurie', 'Hriinchenko', '2076573624');
 insert into maintainance_personnel (maintainance_person_id, company_id, firstname, lastname, phone_number) values (2, 4, 'Con', 'Scopes', '5078953546');
 insert into maintainance_personnel (maintainance_person_id, company_id, firstname, lastname, phone_number) values (3, 5, 'Ariel', 'Corteney', '3153021932');
@@ -460,6 +473,7 @@ insert into maintainance_personnel (maintainance_person_id, company_id, firstnam
 insert into maintainance_personnel (maintainance_person_id, company_id, firstname, lastname, phone_number) values (49, 8, 'Claire', 'Grimley', '9723273454');
 insert into maintainance_personnel (maintainance_person_id, company_id, firstname, lastname, phone_number) values (50, 5, 'Amie', 'Forte', '4924345727');
 
+--Inserting data into request table
 insert into REQUEST (Request_ID, UNIT_NO, MAINTAINANCE_PERSON_ID, REQUEST_DESCRIPTION, REQUEST_STATUS, REQUEST_DATE) values (1, 31, 15, 'ipsum integer a nibh in quis justo maecenas', 1, '13-Jun-2022');
 insert into REQUEST (Request_ID, UNIT_NO, MAINTAINANCE_PERSON_ID, REQUEST_DESCRIPTION, REQUEST_STATUS, REQUEST_DATE) values (2, 1, 4, 'dolor morbi vel lectus in quam fringilla rhoncus', 0, '01-Sep-2022');
 insert into REQUEST (Request_ID, UNIT_NO, MAINTAINANCE_PERSON_ID, REQUEST_DESCRIPTION, REQUEST_STATUS, REQUEST_DATE) values (3, 12, 12, 'pede lobortis ligula sit amet eleifend pede libero', 1, '23-Oct-2022');
@@ -511,6 +525,7 @@ insert into REQUEST (Request_ID, UNIT_NO, MAINTAINANCE_PERSON_ID, REQUEST_DESCRI
 insert into REQUEST (Request_ID, UNIT_NO, MAINTAINANCE_PERSON_ID, REQUEST_DESCRIPTION, REQUEST_STATUS, REQUEST_DATE) values (49, 12, 11, 'in libero ut massa volutpat convallis morbi', 1, '21-Apr-2022');
 insert into REQUEST (Request_ID, UNIT_NO, MAINTAINANCE_PERSON_ID, REQUEST_DESCRIPTION, REQUEST_STATUS, REQUEST_DATE) values (50, 18, 25, 'maecenas tristique est et tempus semper est quam', 1, '30-Aug-2022');
 
+--Inserting data into lease table
 insert into lease (lease_id, start_date, end_date) values (1, '24-Mar-2023', '24-Mar-2024');
 insert into lease (lease_id, start_date, end_date) values (2, '24-Mar-2023', '24-Mar-2024');
 insert into lease (lease_id, start_date, end_date) values (3, '24-Mar-2023', '24-Mar-2024');
@@ -612,6 +627,7 @@ insert into lease (lease_id, start_date, end_date) values (98, '24-Mar-2023', '2
 insert into lease (lease_id, start_date, end_date) values (99, '24-Mar-2023', '24-Mar-2024');
 insert into lease (lease_id, start_date, end_date) values (100, '24-Mar-2023', '24-Mar-2024');
 
+--Inserting data into amenity table
 insert into AMENITY (Amenity_ID, AMENITY_DESCRIPTION) values (1, 'erat eros viverra eget congue');
 insert into AMENITY (Amenity_ID, AMENITY_DESCRIPTION) values (2, 'convallis tortor risus dapibus augue vel accumsan');
 insert into AMENITY (Amenity_ID, AMENITY_DESCRIPTION) values (3, 'sed lacus morbi sem mauris');
@@ -663,6 +679,7 @@ insert into AMENITY (Amenity_ID, AMENITY_DESCRIPTION) values (48, 'vitae quam su
 insert into AMENITY (Amenity_ID, AMENITY_DESCRIPTION) values (49, 'diam vitae quam suspendisse potenti nullam');
 insert into AMENITY (Amenity_ID, AMENITY_DESCRIPTION) values (50, 'posuere metus vitae ipsum aliquam non');
 
+--Inserting data into amenity table
 insert into building_has_amenity (SEQUENCE1, building_id, amenity_id) values (1, 22, 12);
 insert into building_has_amenity (SEQUENCE1, building_id, amenity_id) values (2, 69, 12);
 insert into building_has_amenity (SEQUENCE1, building_id, amenity_id) values (3, 57, 17);
@@ -714,6 +731,7 @@ insert into building_has_amenity (SEQUENCE1, building_id, amenity_id) values (48
 insert into building_has_amenity (SEQUENCE1, building_id, amenity_id) values (49, 32, 37);
 insert into building_has_amenity (SEQUENCE1, building_id, amenity_id) values (50, 11, 20);
 
+--Inserting data into leased_units
 insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (1, 1, 1, 1);
 insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (2, 2, 2, 2);
 insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (3, 3, 3, 3);
@@ -767,6 +785,7 @@ insert into LEASED_UNITS (Sequence2, LEASE_ID, UNIT_NO, Tenant_ID) values (50, 5
 
 commit;
 
+--Writing a procedure to get all the buildings information
 CREATE OR REPLACE PROCEDURE get_all_buildings AS
   v_building_name BUILDING.BUILDING_NAME%TYPE;
 BEGIN
@@ -779,6 +798,7 @@ BEGIN
 END;
 /
 
+--Writing a procedure to get the particular buildings managed by a company
 CREATE OR REPLACE PROCEDURE get_company_buildings (CompanyUsername IN VARCHAR)
 AS
   companyid NUMBER;
@@ -793,7 +813,7 @@ BEGIN
 END;
 /
 
-
+--Writing a procedure to get the particular building details 
 CREATE OR REPLACE PROCEDURE get_building_details (buildingname IN VARCHAR)
 AS
   address building.address%TYPE;
@@ -815,7 +835,7 @@ BEGIN
 END;
 /
 
-
+--Writing a procedure to get the particular tenants details of the respective unit.
 CREATE OR REPLACE FUNCTION get_tenants(
     unitno IN NUMBER
 )
@@ -838,6 +858,7 @@ BEGIN
 END;
 /
 
+--Writing a procedure to get the maintainance requests of a particular unit
 CREATE OR REPLACE PROCEDURE get_maintenance_requests(
   unitno IN NUMBER
 )
@@ -850,5 +871,40 @@ BEGIN
   WHERE r.unit_no = unitno;
   
   DBMS_OUTPUT.PUT_LINE('Description: ' || description || ', Status: ' || status);
+END;
+/
+
+--Creating view to get units available
+CREATE OR REPLACE FUNCTION is_unit_available(p_unitno IN NUMBER)
+RETURN BOOLEAN
+DETERMINISTIC
+IS
+  l_leaseid NUMBER;
+  l_enddate DATE;
+BEGIN
+  SELECT lease_id INTO l_leaseid 
+  FROM leased_units 
+  WHERE unit_no = p_unitno;
+  
+  IF l_leaseid IS NULL THEN
+    RETURN TRUE;
+  END IF;
+
+  SELECT end_date INTO l_enddate 
+  FROM lease 
+  WHERE lease_id = l_leaseid;
+  
+  IF l_enddate IS NULL THEN
+    RETURN TRUE;
+  END IF;
+  
+  IF l_enddate < SYSDATE THEN
+    RETURN TRUE;
+  ELSE 
+    RETURN FALSE;
+  END IF;
+EXCEPTION
+    when no_data_found then
+    RETURN TRUE;
 END;
 /
