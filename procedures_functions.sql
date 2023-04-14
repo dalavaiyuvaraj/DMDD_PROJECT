@@ -148,3 +148,38 @@ BEGIN
   COMPANY_REGISTER('YUVARAJ COMPANY', 'YUVARAJ_MY2','YUVARAJMY','YUVARAJ@GMAIL.COM','9876543230');
 END;
 /
+
+
+
+CREATE OR REPLACE PROCEDURE create_building (
+   companyusername IN VARCHAR2,
+   buildingname IN VARCHAR2,
+   nooffloors IN NUMBER,
+   noofparkingspots IN NUMBER,
+   typeofbuilding IN VARCHAR2,
+   address IN VARCHAR2,
+   zip_code IN VARCHAR2
+)
+IS
+   companyid NUMBER;
+BEGIN
+   SELECT company_id INTO companyid FROM management_company WHERE lower(company_username) = lower(companyusername);
+   INSERT INTO building
+   VALUES (BUILDING_ID_SEQ.nextval,companyid,buildingname, nooffloors, noofparkingspots,typeofbuilding,address,zip_code);
+   
+   dbms_output.put_line('Result: Building Created');
+EXCEPTION   
+  WHEN DUP_VAL_ON_INDEX THEN
+         dbms_output.put_line('Result: Building Already Exists, Please select different name');
+  WHEN NO_DATA_FOUND THEN
+         dbms_output.put_line('Result: Invalid Username.Please check company user name');
+END;
+/
+
+
+
+BEGIN
+   create_building('Yuvaraj_my', 'Building1', 5, 10, 'Townhouse', '123 Main St', '12345');
+END;
+
+/
