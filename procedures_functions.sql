@@ -1,4 +1,18 @@
+/*CREATE SEQUENCE COMPANY_ID_SEQ START WITH 11;
 
+CREATE SEQUENCE BUILDING_ID_SEQ START WITH 100; 
+
+CREATE SEQUENCE TENANT_ID_SEQ START WITH 101; 
+
+CREATE SEQUENCE LEASE_ID_SEQ START WITH 101;
+
+CREATE SEQUENCE RANDOM_ID_SEQ START WITH 101;
+
+CREATE SEQUENCE MAINTAINANCE_PERSON_ID_SEQ START WITH 51;
+
+CREATE SEQUENCE RANDOM_ID2_SEQ START WITH 51;
+
+CREATE SEQUENCE Repair_Request_ID_SEQ START WITH 51;*/
 
 
 
@@ -161,6 +175,8 @@ CREATE OR REPLACE PROCEDURE COMPANY_REGISTER(
     
     DBMS_OUTPUT.PUT_LINE('Result: REGISTER SUCCESS');
     
+    COMMIT;
+    
   EXCEPTION
     WHEN phone_number_too_large THEN
       DBMS_OUTPUT.PUT_LINE('Result: PHONE_NUMBER SHOULD NOT BE MORE THAN 15 DIGITS');
@@ -168,6 +184,7 @@ CREATE OR REPLACE PROCEDURE COMPANY_REGISTER(
       DBMS_OUTPUT.PUT_LINE('Result: REGISTER FAILED,COMPANY USERNAME ALREADY EXISTS PLEASE USE DIFFERENT USERNAME');
     WHEN OTHERS THEN
       DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+
   END COMPANY_REGISTER;
 /
 
@@ -229,6 +246,7 @@ BEGIN
    VALUES (BUILDING_ID_SEQ.nextval,companyid,buildingname, nooffloors, noofparkingspots,typeofbuilding,address,zip_code);
    
    DBMS_OUTPUT.PUT_LINE('Result: Building Created');
+   COMMIT;
    
 EXCEPTION   
   WHEN DUP_VAL_ON_INDEX THEN
@@ -237,6 +255,8 @@ EXCEPTION
          DBMS_OUTPUT.PUT_LINE('Result: Invalid Username.Please check company user name');
   WHEN OTHERS THEN
          DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+         
+
 END;
 /
 
@@ -282,6 +302,7 @@ BEGIN
     VALUES (buildingid || 0 || unitNo, buildingid, noofbedrooms, noofbathrooms, unit_price, unit_area);
     
   dbms_output.put_line('Result: Unit '|| unitNo || ' Added to '|| buildingname);
+  COMMIT;
 EXCEPTION   
   WHEN DUP_VAL_ON_INDEX THEN
     dbms_output.put_line('Result: Unit No Already Exists, Please select different unit no');
@@ -380,6 +401,7 @@ BEGIN
             RAISE GET_OUT;
   END;
 
+COMMIT;
 EXCEPTION
    WHEN GET_OUT THEN
    Rollback;
@@ -415,6 +437,7 @@ BEGIN
       DBMS_OUTPUT.PUT_LINE('Success: Maintenance Person Created');
     END IF;
   END;
+  COMMIT;
   EXCEPTION
   WHEN GET_OUT THEN
     DBMS_OUTPUT.PUT_LINE('Error: Person Already Exists');
@@ -551,7 +574,7 @@ BEGIN
           DBMS_OUTPUT.PUT_LINE('Success: Maintenance Request Created');
         END IF;
     END;
-
+COMMIT;
 EXCEPTION
     WHEN GET_OUT THEN
         DBMS_OUTPUT.PUT_LINE('Error: Request Already Exists');
@@ -662,8 +685,8 @@ BEGIN
   FROM request r 
   WHERE r.unit_no = buildingid || 0||unitno;
   
-  -- do something with the result, such as print it to the console
   DBMS_OUTPUT.PUT_LINE('Description: ' || description);
   DBMS_OUTPUT.PUT_LINE('Status: ' || status);
 END;
 /
+
