@@ -585,3 +585,85 @@ BEGIN
     RETURN;
   END IF;
   
+  BEGIN
+    SELECT building_id INTO buildingid FROM building b WHERE lower(b.building_name) = lower(buidingName);
+    
+    IF buildingid IS NULL THEN
+      DBMS_OUTPUT.PUT_LINE('Error: Building does not exist');
+      RETURN;
+    END IF;
+  EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+      DBMS_OUTPUT.PUT_LINE('Error: Building does not exist');
+      RETURN;
+  END;
+  
+  BEGIN
+    UPDATE request SET request_status = 1, request_date = SYSDATE WHERE unit_no = buildingid || 0 || unit AND request_description = lower(descr);
+    DBMS_OUTPUT.PUT_LINE('Success: Status Changed');
+    IF SQL%ROWCOUNT = 0 THEN
+      DBMS_OUTPUT.PUT_LINE('Error: No request found for the given building, unit, and description');
+      RETURN;
+    END IF;
+  EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+      DBMS_OUTPUT.PUT_LINE('Error: No request found for the given building, unit, and description');
+      RETURN;
+  END;
+  
+  COMMIT;
+EXCEPTION
+  WHEN OTHERS THEN
+    ROLLBACK;
+    DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+END;
+/
+
+
+select * from building;
+
+CREATE OR REPLACE FUNCTION get_tenants(buildingname VARCHAR2, unitno NUMBER)
+RETURN VARCHAR2
+DETERMINISTIC
+IS
+  tenantname VARCHAR2(50);
+  tenantid NUMBER;
+  buildingid NUMBER;
+BEGIN
+  SELECT building_id INTO buildingid FROM building WHERE lower(building_name) = lower(buildingname);
+  SELECT tenant_id INTO tenantid 
+  FROM leased_units il 
+  LEFT JOIN unit u ON il.unit_no = u.unit_no 
+  WHERE il.unit_no = buildingid|| 0 ||unitno;
+  
+  SELECT First_name || ' ' || Last_name INTO tenantname 
+  FROM tenant t  
+  WHERE t.tenant_id = tenantid;
+  
+  RETURN tenantname;
+END;
+/
+
+SELECT get_tenants('Building1', 101) FROM DUAL;
+
+
+CREATE OR REPLACE PROCEDURE get_maintenance_requests(
+  buildingname IN VARCHAR2,
+  unitno IN NUMBER
+)
+IS
+  buildingid NUMBER;
+  description VARCHAR2(200);
+  status VARCHAR2(20);
+BEGIN
+  SELECT building_id INTO buildingid FROM building WHERE lower(building_name) = lower(buildingname);
+  SELECT request_description, request_status
+  INTO description, status
+  FROM request r 
+  WHERE r.unit_no = buildingid || 0||unitno;
+  
+  -- do something with the result, such as print it to the console
+  DBMS_OUTPUT.PUT_LINE('Description: ' || description);
+  DBMS_OUTPUT.PUT_LINE('Status: ' || status);
+END;
+/
